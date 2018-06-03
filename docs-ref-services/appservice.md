@@ -42,20 +42,20 @@ Cet exemple crée un site web sur Azure à l’aide de Node.js.
 const msRestAzure = require('ms-rest-azure');
 const webSiteManagementClient = require('azure-arm-website');
 
-const subscriptionId = 'your-subscription-id';
+const subscriptionId = 'votre-id-de-souscription';
 const website = 'website001';
-const resourceGroup = 'your-resource-group';
+const resourceGroup = 'votre-groupe-de-ressources';
 const hostingPlan = 'testHostingPlan';
 let webSiteClient;
 
 msRestAzure.interactiveLogin().then(credentials => {
   webSiteClient = new webSiteManagementClient(credentials, subscriptionId);
-  createWebSite(website).then(website => console.log('Web Site created successfully', website));
+  createWebSite(website).then(website => console.log('Site Web créé avec succès', website));
 });
 
 function createWebSite(webSiteName) {
   const parameters = { location: 'westus', serverFarmId: hostingPlan };
-  console.log(`Creating web site:  ${webSiteName}`);
+  console.log(`Création du site web :  ${webSiteName}`);
   return webSiteClient.webApps.createOrUpdate(resourceGroup, webSiteName, parameters, null);
 }
 ```
