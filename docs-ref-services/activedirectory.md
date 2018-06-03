@@ -43,11 +43,11 @@ Cet exemple à partir de [l’exemple d’informations d’identification du cli
 const adal = require('adal-node').AuthenticationContext;
 
 const authorityHostUrl = 'https://login.windows.net';
-const tenant = 'your-tenant-id';
+const tenant = 'id-de-votre-tenant';
 const authorityUrl = authorityHostUrl + '/' + tenant;
-const clientId = 'your-client-id';
-const clientSecret = 'your-client-secret';
-const resource = 'your-app-id-uri';
+const clientId = 'votre-client-id';
+const clientSecret = 'votre-client-secret';
+const resource = 'uri-de-votre-app-id';
 
 const context = new adal(authorityUrl);
 
@@ -57,7 +57,7 @@ context.acquireTokenWithClientCredentials(
   clientSecret,
   (err, tokenResponse) => {
     if (err) {
-      console.log(`Token generation failed due to ${err}`);
+      console.log(`Échec de la génération du token en raison de: ${err}`);
     } else {
       console.dir(tokenResponse, { depth: null, colors: true });
     }
