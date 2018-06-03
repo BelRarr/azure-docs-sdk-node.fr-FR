@@ -40,12 +40,12 @@ Cet exemple crée un nouveau service Key Vault dans Azure.
 const msRestAzure = require('ms-rest-azure');
 const KeyVaultManagementClient = require('azure-arm-keyvault');
 
-const subscriptionId = 'your-subscription-id';
-const resourceGroup = 'your-resource-group';
-const vaultName = 'your-new-vault';
-const tenantGUID = 'your-tenant-guid';
+const subscriptionId = 'votre-id-de-souscription';
+const resourceGroup = 'votre-groupe-de-ressources';
+const vaultName = 'nom-de-votre-nouvelle-voûte';
+const tenantGUID = 'guid-de-votre-tenant';
 
-// Interactive Login
+// Connexion interactive
 let client;
 msRestAzure
   .interactiveLogin()
@@ -64,12 +64,12 @@ msRestAzure
         tenantId: tenantGUID
       }
     };
-    console.info('Creating vault ${vaultName} ...');
+    console.info('Création de la voûte ${vaultName} ...');
     return client.vaults.createOrUpdate(resourceGroup, vaultName, parameters);
   })
   .then(vault => console.dir(vault, { depth: null, colors: true }))
   .catch(err => {
-    console.log('An error occured');
+    console.log('Une erreur est survenue');
     console.dir(err, { depth: null, colors: true });
     return err;
   });
