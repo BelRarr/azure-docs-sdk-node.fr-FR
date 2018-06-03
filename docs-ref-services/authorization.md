@@ -42,8 +42,8 @@ Cet exemple répertorie toutes les attributions de rôle pour le groupe de resso
 const msRestAzure = require('ms-rest-azure');
 const authorizationManagement = require('azure-arm-authorization');
 
-const resourceGroup = 'resource-group-name';
-const subscriptionId = 'your-subscription-id';
+const resourceGroup = 'nom-du-groupe-de-ressources';
+const subscriptionId = 'votre-id-de-souscription';
 
 msRestAzure.interactiveLogin().then(credentials => {
  const client = new authorizationManagement(credentials, subscriptionId);
